@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandwich Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background-image: url("assets/v935-aum-16.jpg");
+      background-color: hsl(0 0% 100% / .5);
+    }
+
+    body > header > h1,
+    body > header > h2 {
+      background-image: linear-gradient(337deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 8px;
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sandwich-container {
+      background: white;
+      padding: 128px 48px;
+      border-radius: 16px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .sandwich {
+      position: relative;
+      height: 75px;
+      width: 133px;
+    }
+
+    .ingredient {
+      position: absolute;
+      width: 100%;
+      transform: translate(-50%, 0);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      background-color: #EA4C89;
+      border-radius: 8px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 40px;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      outline: none;
+      padding: 10px 16px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #F082AC;
+    }
+
+    #ham {
+      top: -5px;
+    }
+
+    #cheese {
+      top: -5px;
+    }
+
+    #top_bread {
+      top: -20px;
+    }
+
+    footer {
+      padding: 16px;
+    }
+
+    .card {
+      --hue: 337;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      z-index: 9999;
+    }
+
+    .card header {
+      position: relative;
+      border-bottom: 1px solid black;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      padding: 1px 16px;
+      background-image: linear-gradient(hsl(var(--hue), 100%, 50%) 50%, hsl(var(--hue), 100%, 43%) 0%);
+      box-shadow: inset 1px 1px 0 hsl(var(--hue), 100%, 75%),
+      inset -1px -1px hsl(var(--hue), 100%, 35%);
+      text-align: center;
+      color: white;
+    }
+
+    .card header::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(45deg, hsl(var(--hue), 100%, 35%) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--hue), 100%, 35%) 35%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--hue), 100%, 35%) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--hue), 100%, 35%) 75%);
+      background-size: 4px 4px;
+      margin: 6px 16px;
+    }
+
+    .card header h1 {
+      font-size: 1rem;
+      margin: 0 auto;
+      width: fit-content;
+      background-image: linear-gradient(hsl(var(--hue), 100%, 50%) 50%, hsl(var(--hue), 100%, 43%) 0%);
+      position: relative;
+      padding: 6px 8px;
+    }
+
+    .card .content {
+      padding: 8px 16px;
+      background-image: linear-gradient(to right, hsl(var(--hue), 0%, 90%) 2px, hsl(var(--hue), 0%, 100%) 0, hsl(var(--hue), 0%, 100%) calc(100% - 2px), hsl(var(--hue), 0%, 90%) 2px);
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      box-shadow: inset 0px -2px hsl(var(--hue), 0%, 85%);
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+<article class="card" id="modal">
+  <header>
+    <h1>Wat is Progressive Enhancement?</h1>
+  </header>
+  <div class="content">
+    <p>Met deze <i>Sandwich Builder</i> wil ik Progressive Enhancement uitbeelden aan de hand van deze smaakvolle
+      illustraties!</p>
+    <p>Progressive Enhancement is namelijk het uit breiden van de functionaliteit van een applicatie:
+    <ol>
+      <li>De absolute basis: <strong>Het brood</strong> van de sandwich (<i>HTML</i>)</li>
+      <li>Vervolgens kun je het lekkerder maken met <strong>beleg</strong> (<i>CSS</i>)</li>
+      <li>Ten slotte kun je de sandwich verder verbeteren met <strong>saus en kruiden</strong> (<i>JavaScript</i>)</li>
+    </ol>
+    <p>Natuurlijk gaat dit nog verder dan alleen het gebruik van meerdere talen: zoals moderne CSS V.S. legacy CSS en JavaScript V.S. ES2022</p>
+    <p>
+      <button onclick="closeModal()"><label for="closeModal">Probeer de Sandwich Builder</label></button>
+    </p>
+  </div>
+</article>
+
+<header>
+  <h1>Progressive Enhancement</h1>
+  <h2>By building a Sandwich</h2>
+  <button onclick="showSauce()">Add Sauce</button>
+  <button onclick="overlapHamCheese()">Overlap Ham & Cheese</button>
+  <button onclick="addTopBread()">Add Top Bread</button>
+</header>
+<main>
+  <div class="sandwich-container">
+    <div class="sandwich">
+      <img class="ingredient" src="./assets/bread.svg" alt="Bottom Bread">
+      <img class="ingredient hidden" id="sauce" src="assets/bread-with-sauce.svg" alt="Sauce">
+      <img class="ingredient hidden" id="ham" src="assets/bacon.svg" alt="Ham">
+      <img class="ingredient hidden" id="cheese" src="assets/cheese.svg" alt="Cheese">
+      <img class="ingredient hidden" id="top_bread" src="assets/bread-with-sauce.svg" alt="Top Bread">
+    </div>
+  </div>
+</main>
+<footer>
+  Image by <a
+    href="https://www.freepik.com/free-vector/bacon-sandwich-concept_7437447.htm#query=sandwich%20parts%20package&position=0&from_view=search&track=ais#position=0&query=sandwich%20parts%20package">Freepik</a>
+  <br>
+  Button by <a href="https://getcssscan.com/css-buttons-examples">https://getcssscan.com/css-buttons-examples</a>
+  <br>
+  <a href="https://www.freepik.com/free-vector/background-seamless-pattern-vector-with-cute-memphis_15841841.htm#query=background%20pattern&position=39&from_view=keyword&track=ais">Background
+    by rawpixel.com</a> on Freepik
+</footer>
+
+<script>
+    function closeModal() {
+        document.getElementById('modal').classList.add('hidden');
+    }
+
+    function showSauce() {
+        document.getElementById('sauce').classList.remove('hidden');
+    }
+
+    function overlapHamCheese() {
+        document.getElementById('ham').classList.remove('hidden');
+        document.getElementById('cheese').classList.remove('hidden');
+    }
+
+    function addTopBread() {
+        document.getElementById('top_bread').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
